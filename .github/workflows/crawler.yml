@@ -179,5 +179,5 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        repository: SivanuHappy/crawler
+        repository: stccenter/COVID-19-Crawler-Data
         github_token: ${{ secrets.GITHUB_TOKEN }}
