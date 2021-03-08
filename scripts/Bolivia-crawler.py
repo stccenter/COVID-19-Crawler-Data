@@ -21,7 +21,6 @@ soup = BeautifulSoup(response.content, 'lxml')
 items = soup.find_all('img')
 
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-print(mkfile_time)
 
 folder_path = './data/Bolivia/'+ mkfile_time + '/'
 if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在
@@ -32,7 +31,6 @@ try:
 	for index, item in enumerate(items):
 		if (item.get('src').find('https://') > -1):
 			# get函数获取图片链接地址，requests发送访问请求
-			print(item)
 			html = requests.get(item.get('src'))
 			img_name = folder_path + str(index + 1) + '.png'
 			print(img_name)

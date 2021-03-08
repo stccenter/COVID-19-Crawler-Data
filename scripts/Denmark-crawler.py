@@ -21,9 +21,7 @@ url = 'https://www.ssi.dk/sygdomme-beredskab-og-forskning/sygdomsovervaagning/c/
 response = requests.get(url, headers={'Connection': 'close'})
 soup = BeautifulSoup(response.content, 'lxml')
 items = soup.find_all('img')
-print(len(items))
-for i in items:
-    print(i)
+
 
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
 print(mkfile_time)
@@ -32,21 +30,12 @@ folder_path = './data/Denmark/'+ mkfile_time + '/'
 if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在
     os.makedirs(folder_path)
 
-for image in items:
-    if image.get('data-src') == None:
-        print("Image source: ", image.get('src'))
-    else:
-        print("Image source: ", image.get('data-src'))
-
 items.pop(0)
-for j in items:
-    print("popped: ", j)
 
 try:
 	for index, item in enumerate(items):
 		if item:
 			# get函数获取图片链接地址，requests发送访问请求
-			print(item)
 			if item.get('data-src') == None:
 			    html = requests.get(item.get('src'))
 			else:

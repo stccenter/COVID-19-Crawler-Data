@@ -23,171 +23,187 @@ jobs:
         python-version: 3.7
     - name: Install dependencies
       run: pip install -r requirements.txt
-      
-    - name: Generate Denmark data
-      run: python scripts/Denmark-crawler.py
-      continue-on-error: true
 
-    - name: Generate Hungary data
-      run: python scripts/Hungary-crawler.py
-      continue-on-error: true
-
-    - name: Generate Croatia data
-      run: python scripts/Croatia-crawler.py
-      continue-on-error: true
-
-    - name: Generate Slovakia data
-      run: python scripts/Slovakia-crawler.py
-      continue-on-error: true
-
-    - name: Generate Bulgaria data
-      run: python scripts/Bulgaria-crawler.py
-      continue-on-error: true
-
-    - name: Generate India data
-      run: python scripts/India-crawler.py
-      continue-on-error: true
-
-    - name: Generate Kazakhstan data
-      run: python scripts/Kazakhstan-crawler.py
-      continue-on-error: true
-
-    - name: Generate NewZealand data
-      run: python scripts/NewZealand-crawler.py
-      continue-on-error: true
-
-    - name: Generate Jamaica data
-      run: python scripts/Jamaica-crawler.py
-      continue-on-error: true
-
-    - name: Generate Myanmar data
-      run: python scripts/Myanmar-crawler.py
-      continue-on-error: true
-
-    - name: Generate Panama data
-      run: python scripts/Panama-crawler.py
-      continue-on-error: true
-
-    - name: Generate Switzerland data
-      run: python scripts/Switzerland-crawler.py
-      continue-on-error: true
-
-    - name: Generate Moldova data
-      run: python scripts/Moldova-crawler.py
-      continue-on-error: true
-
-    - name: Generate Somalia data
-      run: python scripts/Somalia-crawler.py
-      continue-on-error: true
-
-    - name: Generate Chile data
-      run: python scripts/Chile-crawler.py
-      continue-on-error: true
-
-    - name: Generate Austria data
-      run: python scripts/Austria-crawler.py
-      continue-on-error: true
-
-    - name: Generate BosniaHerzegovina data
-      run: python scripts/BosniaHerzegovina-crawler.py
-      continue-on-error: true
-
-    - name: Generate Nigeria data
-      run: python scripts/Nigeria-crawler.py
-      continue-on-error: true
-
-
-    - name: Generate Libya data
-      run: python scripts/Libya-crawler.py
-      continue-on-error: true
-
-
-    - name: Generate Malaysia data
-      run: python scripts/Malaysia-crawler.py
-      continue-on-error: true
-
-
-    - name: Generate Bangladesh data
-      run: python scripts/Bangladesh-crawler.py
-      continue-on-error: true
-
-
-    - name: Generate Lebanon data
-      run: python scripts/Lebanon-crawler.py
-      continue-on-error: true
-
-    - name: Generate ElSalvador data
-      run: python scripts/ElSalvador-crawler.py
-      continue-on-error: true
-
-
-    - name: Generate Honduras data
-      run: python scripts/Honduras-crawler.py
-      continue-on-error: true
-
-    - name: Generate Ghana data
-      run: python scripts/Ghana-crawler.py
-      continue-on-error: true
-
-    - name: Generate Romania data
-      run: python scripts/Romania-crawler.py
-      continue-on-error: true
-
-    - name: Generate Vietnam data
-      run: python scripts/Vietnam-crawler.py
-      continue-on-error: true
-
-
-    - name: Generate Japan data
-      run: python scripts/Japan-crawler.py
-      continue-on-error: true
-
-
-    - name: Generate Ukraine data
-      run: python scripts/Ukraine-crawler.py
-      continue-on-error: true
-
-    - name: Generate Latvia data
-      run: python scripts/Latvia-crawler.py
-      continue-on-error: true
-
+    #Country 1
     - name: Generate Albania data
       run: python scripts/Albania-crawler.py
       continue-on-error: true
 
-
-    - name: Generate Sweden data
-      run: python scripts/Sweden-crawler.py
+    #Country 2
+    - name: Generate Austria data
+      run: python scripts/Austria-crawler.py
       continue-on-error: true
 
-
-    - name: Generate Brazil data
-      run: python scripts/Brazil-crawler.py
+    #Country 3
+    - name: Generate Bangladesh data
+      run: python scripts/Bangladesh-crawler.py
       continue-on-error: true
 
-    - name: Generate Russia data
-      run: python scripts/Russia-crawler.py
-      continue-on-error: true
-
-    - name: Generate Thailand data
-      run: python scripts/Thailand-crawler.py
-      continue-on-error: true      
-
+    #Country 4
     - name: Generate Bolivia data
       run: python scripts/Bolivia-crawler.py
       continue-on-error: true 
 
+    #Country 5
+    - name: Generate BosniaHerzegovina data
+      run: python scripts/BosniaHerzegovina-crawler.py
+      continue-on-error: true
+
+    #Country 6
+    - name: Generate Brazil data
+      run: python scripts/Brazil-crawler.py
+      continue-on-error: true
+
+    #Country 7
+    - name: Generate Bulgaria data
+      run: python scripts/Bulgaria-crawler.py
+      continue-on-error: true
+
+    #Country 8
     - name: Generate Cambodia data
       run: python scripts/Cambodia-crawler.py
       continue-on-error: true 
 
+    #Country 9
+    - name: Generate Chile data
+      run: python scripts/Chile-crawler.py
+      continue-on-error: true
+
+    #Country 10
+    - name: Generate Denmark data
+      run: python scripts/Denmark-crawler.py
+      continue-on-error: true
+
+    #Country 11
+    - name: Generate ElSalvador data
+      run: python scripts/ElSalvador-crawler.py
+      continue-on-error: true
+
+    #Country 12
     - name: Generate Germany data
       run: python scripts/Germany-crawler.py
       continue-on-error: true 
 
+    #Country 13
+    - name: Generate Ghana data
+      run: python scripts/Ghana-crawler.py
+      continue-on-error: true
+
+    #Country 14
+    - name: Generate Honduras data
+      run: python scripts/Honduras-crawler.py
+      continue-on-error: true
+
+    #Country 15
+    - name: Generate Hungary data
+      run: python scripts/Hungary-crawler.py
+      continue-on-error: true
+
+    #Country 16
+    - name: Generate India data
+      run: python scripts/India-crawler.py
+      continue-on-error: true
+
+    #Country 17
     - name: Generate Italy data
       run: python scripts/Italy-crawler.py
-      continue-on-error: true 
+      continue-on-error: true
+
+    #Country 18
+    - name: Generate Jamaica data
+      run: python scripts/Jamaica-crawler.py
+      continue-on-error: true
+
+    #Country 19
+    - name: Generate Japan data
+      run: python scripts/Japan-crawler.py
+      continue-on-error: true
+
+    #Country 20
+    - name: Generate Kazakhstan data
+      run: python scripts/Kazakhstan-crawler.py
+      continue-on-error: true
+
+    #Country 21
+    - name: Generate Lebanon data
+      run: python scripts/Lebanon-crawler.py
+      continue-on-error: true
+
+    #Country 22
+    - name: Generate Libya data
+      run: python scripts/Libya-crawler.py
+      continue-on-error: true
+  
+    #Country 23
+    - name: Generate Malaysia data
+      run: python scripts/Malaysia-crawler.py
+      continue-on-error: true
+
+    #Country 24
+    - name: Generate Moldova data
+      run: python scripts/Moldova-crawler.py
+      continue-on-error: true
+
+    #Country 25
+    - name: Generate Myanmar data
+      run: python scripts/Myanmar-crawler.py
+      continue-on-error: true
+
+    #Country 26
+    - name: Generate NewZealand data
+      run: python scripts/NewZealand-crawler.py
+      continue-on-error: true
+
+    #Country 27
+    - name: Generate Nigeria data
+      run: python scripts/Nigeria-crawler.py
+      continue-on-error: true
+
+    #Country 28
+    - name: Generate Panama data
+      run: python scripts/Panama-crawler.py
+      continue-on-error: true
+
+    #Country 29
+    - name: Generate Romania data
+      run: python scripts/Romania-crawler.py
+      continue-on-error: true
+
+    #Country 30
+    - name: Generate Russia data
+      run: python scripts/Russia-crawler.py
+      continue-on-error: true
+
+    #Country 31
+    - name: Generate Slovakia data
+      run: python scripts/Slovakia-crawler.py
+      continue-on-error: true
+
+    #Country 32
+    - name: Generate Somalia data
+      run: python scripts/Somalia-crawler.py
+      continue-on-error: true
+
+    #Country 33
+    - name: Generate Sweden data
+      run: python scripts/Sweden-crawler.py
+      continue-on-error: true
+
+    #Country 34
+    - name: Generate Switzerland data
+      run: python scripts/Switzerland-crawler.py
+      continue-on-error: true
+
+    #Country 35
+    - name: Generate Thailand data
+      run: python scripts/Thailand-crawler.py
+      continue-on-error: true
+
+    #Country 36
+    - name: Generate Ukraine data
+      run: python scripts/Ukraine-crawler.py
+      continue-on-error: true
+
 
     - name: Commit data files
       run: |
