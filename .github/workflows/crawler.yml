@@ -1,36 +1,183 @@
-# This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Dataset Update
 
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: 
+    -  main 
+  schedule:
+    - cron: "*/10 * * * *"
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
+
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+      
+    - name: Generate Denmark data
+      run: python scripts/Denmark-crawler.py
+      continue-on-error: true
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+    - name: Generate Hungary data
+      run: python scripts/Hungary-crawler.py
+      continue-on-error: true
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+    - name: Generate Croatia data
+      run: python scripts/Croatia-crawler.py
+      continue-on-error: true
+
+    - name: Generate Slovakia data
+      run: python scripts/Slovakia-crawler.py
+      continue-on-error: true
+
+    - name: Generate Bulgaria data
+      run: python scripts/Bulgaria-crawler.py
+      continue-on-error: true
+
+    - name: Generate India data
+      run: python scripts/India-crawler.py
+      continue-on-error: true
+
+    - name: Generate Kazakhstan data
+      run: python scripts/Kazakhstan-crawler.py
+      continue-on-error: true
+
+    - name: Generate NewZealand data
+      run: python scripts/NewZealand-crawler.py
+      continue-on-error: true
+
+    - name: Generate Jamaica data
+      run: python scripts/Jamaica-crawler.py
+      continue-on-error: true
+
+    - name: Generate Myanmar data
+      run: python scripts/Myanmar-crawler.py
+      continue-on-error: true
+
+    - name: Generate Panama data
+      run: python scripts/Panama-crawler.py
+      continue-on-error: true
+
+    - name: Generate Switzerland data
+      run: python scripts/Switzerland-crawler.py
+      continue-on-error: true
+
+    - name: Generate Moldova data
+      run: python scripts/Moldova-crawler.py
+      continue-on-error: true
+
+    - name: Generate Somalia data
+      run: python scripts/Somalia-crawler.py
+      continue-on-error: true
+
+    - name: Generate Chile data
+      run: python scripts/Chile-crawler.py
+      continue-on-error: true
+
+    - name: Generate Austria data
+      run: python scripts/Austria-crawler.py
+      continue-on-error: true
+
+    - name: Generate BosniaHerzegovina data
+      run: python scripts/BosniaHerzegovina-crawler.py
+      continue-on-error: true
+
+    - name: Generate Nigeria data
+      run: python scripts/Nigeria-crawler.py
+      continue-on-error: true
+
+
+    - name: Generate Libya data
+      run: python scripts/Libya-crawler.py
+      continue-on-error: true
+
+
+    - name: Generate Malaysia data
+      run: python scripts/Malaysia-crawler.py
+      continue-on-error: true
+
+
+    - name: Generate Bangladesh data
+      run: python scripts/Bangladesh-crawler.py
+      continue-on-error: true
+
+
+    - name: Generate Lebanon data
+      run: python scripts/Lebanon-crawler.py
+      continue-on-error: true
+
+    - name: Generate ElSalvador data
+      run: python scripts/ElSalvador-crawler.py
+      continue-on-error: true
+
+
+    - name: Generate Honduras data
+      run: python scripts/Honduras-crawler.py
+      continue-on-error: true
+
+    - name: Generate Ghana data
+      run: python scripts/Ghana-crawler.py
+      continue-on-error: true
+
+    - name: Generate Romania data
+      run: python scripts/Romania-crawler.py
+      continue-on-error: true
+
+    - name: Generate Vietnam data
+      run: python scripts/Vietnam-crawler.py
+      continue-on-error: true
+
+
+    - name: Generate Japan data
+      run: python scripts/Japan-crawler.py
+      continue-on-error: true
+
+
+    - name: Generate Ukraine data
+      run: python scripts/Ukraine-crawler.py
+      continue-on-error: true
+
+    - name: Generate Latvia data
+      run: python scripts/Latvia-crawler.py
+      continue-on-error: true
+
+    - name: Generate Albania data
+      run: python scripts/Albania-crawler.py
+      continue-on-error: true
+
+
+    - name: Generate Sweden data
+      run: python scripts/Sweden-crawler.py
+      continue-on-error: true
+
+
+    - name: Generate Brazil data
+      run: python scripts/Brazil-crawler.py
+      continue-on-error: true
+
+    - name: Generate Russia data
+      run: python scripts/Russia-crawler.py
+      continue-on-error: true
+
+    - name: Commit data files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git status
+        git add .
+        git commit -m "Dataset Update" || echo "Nothing to commit"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        repository: SivanuHappy/crawler
+        github_token: ${{ secrets.GITHUB_TOKEN }}
