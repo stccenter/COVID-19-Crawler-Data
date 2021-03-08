@@ -17,7 +17,7 @@ url = 'https://services3.arcgis.com/CoIPqtHxRZqBsYyb/arcgis/rest/services/FORM2_
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
 print(mkfile_time)
 
-folder_path = './photo/Libya/'+ mkfile_time + '/'
+folder_path = './data/Libya/'+ mkfile_time + '/'
 if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在
     os.makedirs(folder_path)
 

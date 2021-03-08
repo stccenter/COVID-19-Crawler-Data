@@ -21,7 +21,7 @@ data = json.loads(tag)["data"].split("\n")[1:-1]
 
 # Create and open the CSV
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-folder_path = './photo/Poland/'+ mkfile_time + '/'
+folder_path = './data/Poland/'+ mkfile_time + '/'
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
 file = open(folder_path+'table.csv', 'w', newline='', encoding='utf-8-sig')

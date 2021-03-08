@@ -14,7 +14,7 @@ from datetime import datetime
 
 # Create the directory
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-folder_path = './photo/Bangladesh/'+ mkfile_time + '/'
+folder_path = './data/Bangladesh/'+ mkfile_time + '/'
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
 

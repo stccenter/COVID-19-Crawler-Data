@@ -23,7 +23,7 @@ items = soup.find_all('img')
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
 print(mkfile_time)
 
-folder_path = './photo/Hungary/'+ mkfile_time + '/'
+folder_path = './data/Hungary/'+ mkfile_time + '/'
 if os.path.exists(folder_path) == False:
     os.makedirs(folder_path)
 

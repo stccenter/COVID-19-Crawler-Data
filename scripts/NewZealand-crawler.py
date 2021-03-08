@@ -23,7 +23,7 @@ tables = soup.select('table')
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
 print(mkfile_time)
 
-folder_path = './photo/New Zealand/'+ mkfile_time + '/'
+folder_path = './data/New Zealand/'+ mkfile_time + '/'
 if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在
     os.makedirs(folder_path)
 
@@ -69,7 +69,7 @@ print (df)
 # mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
 # print(mkfile_time)
 
-# folder_path = './photo/New Zealand/'+ mkfile_time + '/'
+# folder_path = './data/New Zealand/'+ mkfile_time + '/'
 # if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在
 #     os.makedirs(folder_path)
 

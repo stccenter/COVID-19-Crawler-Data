@@ -12,32 +12,38 @@ import os
 import time
 from datetime import datetime
 import pandas as pd 
-
+begin_time = datetime.now()
 url = 'https://www.boliviasegura.gob.bo/'
 
 
 response = requests.get(url, headers={'Connection': 'close'})
 soup = BeautifulSoup(response.content, 'lxml')
-tables = soup.select('table')
-
-
+items = soup.find_all('img')
 
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
 print(mkfile_time)
 
-folder_path = './photo/Bolivia/'+ mkfile_time + '/'
+folder_path = './data/Bolivia/'+ mkfile_time + '/'
 if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在
     os.makedirs(folder_path)
 
-table_name = folder_path +'.csv'
 
-    
 try:
-    df = pd.read_html(tables[1].prettify())
-    df = pd.concat(df)
-    df = df.rename(columns={"Departamento":"Department", "Hoy":"Today","Acumulado": "Accumulated", "Decesos":"Deaths","Recuperados":"Recovered"})
-    df.to_csv(folder_path+'table.csv', encoding='utf-8-sig')
-    print('抓取完成')
+	for index, item in enumerate(items):
+		if (item.get('src').find('https://') > -1):
+			# get函数获取图片链接地址，requests发送访问请求
+			print(item)
+			html = requests.get(item.get('src'))
+			img_name = folder_path + str(index + 1) + '.png'
+			print(img_name)
+			with open(img_name, 'wb') as file:
+			    file.write(html.content)
+			    file.flush()
+			file.close()
+			print('第%d张图片下载完成' % (index+1))
+			time.sleep(1)  # 自定义延时
+
+
 except IOError:
- 	print("error")
-#print (df)
+	print("error")
+print(datetime.now() - begin_time)

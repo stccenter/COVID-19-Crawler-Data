@@ -16,7 +16,7 @@ url = 'https://admin.jamcovid19.moh.gov.jm/public/api/statistics'
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
 #print(mkfile_time)
 
-folder_path = './photo/Jamaica/'+ mkfile_time + '/'
+folder_path = './data/Jamaica/'+ mkfile_time + '/'
 if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在
     os.makedirs(folder_path)
 

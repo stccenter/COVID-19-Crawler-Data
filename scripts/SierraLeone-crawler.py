@@ -17,7 +17,7 @@ url = 'https://covid19.mic.gov.sl/static/media/districts.beade2ed.csv'
 
 # Make the directory
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-folder_path = './photo/SierraLeone/'+ mkfile_time + '/'
+folder_path = './data/SierraLeone/'+ mkfile_time + '/'
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
 

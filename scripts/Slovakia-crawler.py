@@ -29,7 +29,7 @@ print(tables)
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
 print(mkfile_time)
 
-folder_path = './photo/Slovakia/'+ mkfile_time + '/'
+folder_path = './data/Slovakia/'+ mkfile_time + '/'
 if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在
     os.makedirs(folder_path)
 

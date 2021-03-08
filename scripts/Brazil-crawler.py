@@ -21,7 +21,7 @@ data = json.loads(response.text)
 
 # Create and open the CSV
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-folder_path = './photo/Brazil/'+ mkfile_time + '/'
+folder_path = './data/Brazil/'+ mkfile_time + '/'
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
 file = open(folder_path+'HealthRegion.csv', 'w', newline='', encoding='utf-8-sig')

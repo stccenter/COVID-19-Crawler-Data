@@ -24,7 +24,7 @@ data = json.loads(string)["elements"]["content"]["content"]["entities"]
 
 # Make the folder
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-folder_path = './photo/ElSalvador/'+ mkfile_time + '/'
+folder_path = './data/ElSalvador/'+ mkfile_time + '/'
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
 

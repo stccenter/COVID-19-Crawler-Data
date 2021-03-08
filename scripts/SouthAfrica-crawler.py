@@ -51,7 +51,7 @@ death_recov_map = {death_recov[i][0]: i for i in range(len(death_recov))}
 
 # Create and open the CSV
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-folder_path = './photo/SouthAfrica/'+ mkfile_time + '/'
+folder_path = './data/SouthAfrica/'+ mkfile_time + '/'
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
 file = open(folder_path+'table.csv', 'w', newline='', encoding='utf-8-sig')

@@ -169,6 +169,26 @@ jobs:
       run: python scripts/Russia-crawler.py
       continue-on-error: true
 
+    - name: Generate Thailand data
+      run: python scripts/Thailand-crawler.py
+      continue-on-error: true      
+
+    - name: Generate Bolivia data
+      run: python scripts/Bolivia-crawler.py
+      continue-on-error: true 
+
+    - name: Generate Cambodia data
+      run: python scripts/Cambodia-crawler.py
+      continue-on-error: true 
+
+    - name: Generate Germany data
+      run: python scripts/Germany-crawler.py
+      continue-on-error: true 
+
+    - name: Generate Italy data
+      run: python scripts/Italy-crawler.py
+      continue-on-error: true 
+
     - name: Commit data files
       run: |
         git config --local user.email "action@github.com"

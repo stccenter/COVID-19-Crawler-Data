@@ -35,7 +35,7 @@ tag = soup.findAll("table", {"class": "js-csv-data csv-data js-file-line-contain
 
 # Create and open the CSV
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-folder_path = './photo/Italy/'+ mkfile_time + '/'
+folder_path = './data/Italy/'+ mkfile_time + '/'
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
 file = open(folder_path+'table.csv', 'w', newline='', encoding='utf-8-sig')
@@ -55,5 +55,5 @@ data = table.findAll("tr")
 for d in data:
 	nums = d.findAll("td")[1:-1]
 	nums = [nums[m] for m in mask]
-	row = [n.contents[0] for n in nums]
+	row = [n.text for n in nums]
 	writer.writerow(row)
