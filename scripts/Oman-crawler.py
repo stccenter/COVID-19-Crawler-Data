@@ -12,12 +12,11 @@ import os
 from datetime import datetime
 
 
-url = 'https://covid19.moh.gov.om/#/home'
-# The above URL actually gets its data from here:
 url = 'https://covid19.moh.gov.om/ens/outbreak/getRegionWalayatSummary'
 
 # Get the data
-response = requests.get(url, headers={'Connection': 'close'}, verify=False)
+requests.packages.urllib3.disable_warnings()
+response = requests.get(url, headers={'Connection': 'close'},verify=False)
 data = json.loads(response.text)["result"]
 
 # Create and open the CSV

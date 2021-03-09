@@ -10,7 +10,9 @@ import requests
 import os
 from datetime import datetime
 from bs4 import BeautifulSoup
+import time
 
+begin_time = datetime.now()
 regions = ["Eastern Cape", "Free State", "Gauteng", "KwaZulu-Natal", "Limpopo", "Mpumalanga", "North West", "Northern Cape", "Western Cape"]
 
 url = "https://sacoronavirus.co.za/category/press-releases-and-notices/"
@@ -23,45 +25,29 @@ pages = tag[0].contents[1::2]
 
 links = [p.contents[1].contents[3].contents[1].contents[1].contents[0]["href"] for p in pages]
 link = [l for l in links if l.find("update-on-covid-19") >= 0][0]
-
 # Get the data
 response = requests.get(link, headers={'Connection': 'close'})
 soup = BeautifulSoup(response.content, 'html.parser')
-tags = soup.findAll("table", {"class": "NormalTable"})
-cases_body = tags[0].contents[1]
-death_recov_body = tags[1].contents[1]
+tags = soup.findAll("img")
 
-# Construct the tables
-cases = []
-death_recov = []
-rows = cases_body.find_all('tr')
-for row in rows:
-    cols = row.find_all('td')
-    cols = [ele.text.strip() for ele in cols]
-    cases.append([ele for ele in cols if ele])
-rows = death_recov_body.find_all('tr')
-for row in rows:
-    cols = row.find_all('td')
-    cols = [ele.text.strip() for ele in cols]
-    death_recov.append([ele for ele in cols if ele])
-
-# Construct the reference
-case_map = {cases[i][0]: i for i in range(len(cases))}
-death_recov_map = {death_recov[i][0]: i for i in range(len(death_recov))}
-
-# Create and open the CSV
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-folder_path = './data/SouthAfrica/'+ mkfile_time + '/'
-if not os.path.exists(folder_path):
-    os.makedirs(folder_path)
-file = open(folder_path+'table.csv', 'w', newline='', encoding='utf-8-sig')
-writer = csv.writer(file)
+print(mkfile_time)
 
-# Write each line to the CSV
-headers = ["Region", "Cases", "Percentage total", "Deaths", "Recoveries", "Active"]
-writer.writerow(headers)
-for r in regions:
-    c = cases[case_map[r]]
-    dr = death_recov[death_recov_map[r]]
-    row = [r, c[1], c[2], dr[1], dr[2], dr[3]]
-    writer.writerow(row)
+folder_path = './data/SouthAfrica/'+ mkfile_time + '/'
+if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在
+    os.makedirs(folder_path)
+
+index = 1
+for item in tags:
+    html = requests.get(item.get('src'))
+    img_name = folder_path + str(index) + '.png'
+    print(img_name)
+    with open(img_name, 'wb') as file:
+        file.write(html.content)
+        file.flush()
+    file.close()
+    print('第%d张图片下载完成' % (index))
+    index += 1
+    time.sleep(1)  # 自定义延时
+
+print(datetime.now() - begin_time)

@@ -10,14 +10,14 @@ import requests
 import json
 import os
 from datetime import datetime
-
+begin_time = datetime.now()
 translate = {
 	"Region": "comunidad_autonoma",
 	"Total cases": "casos_totales",
 	"New cases": "nuevo_casos",
 	"Diagnosed (last 24 hours)": "diagnosticados_ultimas_24_horas",
 	"Diagnosed (last 7 days)": "diagnosticados_ultimos_7_dias",
-	"Difference": "diferencia",
+	"% Cases": "%casos",
 	"Diagnosed (last 14 days)": "diagnosticados_ultimos_14_dias",
 	"Cumulative incidence": "ia",
 	"Cumulative incidence (last 7 days)": "ia_7_dias",	
@@ -50,8 +50,9 @@ file = open(folder_path+'table.csv', 'w', newline='', encoding='utf-8-sig')
 writer = csv.writer(file)
 
 # Write each line to the CSV
-headers = ["Region", "Total cases", "New cases", "Diagnosed (last 24 hours)", "Diagnosed (last 7 days)", "Difference", "Diagnosed (last 14 days)", "Cumulative incidence", "Cumulative incidence (last 7 days)", "Deaths", "Death increase", "Deaths (last 7 days)", "Recovered", "Hospitalized", "Percent hospitalized", "ICU", "Percent ICU", "PCR (last week)", "PCR per 100000 pop.", "Percent positive", "Risk assessment"]
+headers = ["Region", "Total cases", "New cases", "Diagnosed (last 24 hours)", "Diagnosed (last 7 days)", "% Cases", "Diagnosed (last 14 days)", "Cumulative incidence", "Cumulative incidence (last 7 days)", "Deaths", "Death increase", "Deaths (last 7 days)", "Recovered", "Hospitalized", "Percent hospitalized", "ICU", "Percent ICU", "PCR (last week)", "PCR per 100000 pop.", "Percent positive", "Risk assessment"]
 writer.writerow(headers)
 for d in data:
-  row = [d[translate[h]] for h in headers]
-  writer.writerow(row)
+    row = [d[translate[h]] for h in headers]
+    writer.writerow(row)
+print(datetime.now() - begin_time)
