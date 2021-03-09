@@ -25,18 +25,15 @@ url = 'https://www.infosihat.gov.my/index.php/wabak-novel-coronavirus-atau-2019n
 response = requests.get(url, headers={'Connection': 'close'}, verify=False)
 soup = BeautifulSoup(response.content, 'lxml')
 items = soup.find_all('img')
-print (items)
-
 
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-print(mkfile_time)
+
 
 folder_path = './data/Malaysia/'+ mkfile_time + '/'
 if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在
     os.makedirs(folder_path)
 
-for image in items:
-    print(image.get('src'))
+
 
 items.pop(0)
 items.pop(0)
@@ -50,8 +47,6 @@ basewebsite = 'https://www.infosihat.gov.my'
 for image in items:
 		html = image.get('src')
 		htmlnew = urllib.parse.urljoin(basewebsite,html)
-   	 	#print(image.get('src'))
-		print(htmlnew)
 
 
 
@@ -63,7 +58,6 @@ for index, item in enumerate(items):
 		html = item.get('src')
 		htmlnew = urllib.parse.urljoin(basewebsite,html)
 		html = requests.get(htmlnew, verify=False)
-		print(htmlnew)
 		img_name = folder_path + str(index + 1) + '.png'
 		with open(img_name, 'wb') as file:  # 以byte形式将图片数据写入
 			file.write(html.content)

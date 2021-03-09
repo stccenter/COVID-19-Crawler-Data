@@ -22,11 +22,8 @@ case = soup.select('.last_info_covid_bl')[0].text
 recovery = soup.select('.red_line_covid_bl')[0].text
 death = soup.select('.deaths_bl')[0].text
 
-
-print(case)
-
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-print(mkfile_time)
+
 
 folder_path = './data/Kazakhstan/'+ mkfile_time + '/'
 if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在

@@ -21,14 +21,12 @@ soup = BeautifulSoup(response.content, 'lxml')
 items = soup.find_all('img')
 
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-print(mkfile_time)
+
 
 folder_path = './data/Hungary/'+ mkfile_time + '/'
 if os.path.exists(folder_path) == False:
     os.makedirs(folder_path)
 
-for image in items:
-    print(image.get('src'))
 
 items.pop(0)
 items.pop(0)
@@ -36,8 +34,7 @@ items.pop(0)
 items.pop(0)
 items.pop(0)
 
-for image in items:
-    print(image.get('src'))
+
 	
 try:
 	for index, item in enumerate(items):

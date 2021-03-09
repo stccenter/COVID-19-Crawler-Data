@@ -10,7 +10,7 @@ import requests
 import os
 import json
 from datetime import datetime
-
+begin_time = datetime.now()
 
 # Create the directory
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
@@ -67,3 +67,5 @@ writer.writerow(labels)
 for d in data:
   row = [d["name"], d["bnName"], d["confirmed"]]
   writer.writerow(row)
+
+print(datetime.now() - begin_time)

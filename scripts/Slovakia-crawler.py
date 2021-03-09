@@ -24,10 +24,7 @@ response = requests.get(url, headers={'Connection': 'close'})
 soup = BeautifulSoup(response.content, 'lxml')
 tables = soup.select('table')
 
-print(tables)
-
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-print(mkfile_time)
 
 folder_path = './data/Slovakia/'+ mkfile_time + '/'
 if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在
@@ -47,17 +44,3 @@ except IOError:
  	print("error")
 
 print(datetime.now() - begin_time)
-# df_list = []
-# try:
-# 	for index, table in enumerate(tables):
-# 		if table:
-# 			table_name = folder_path + str(index + 1)
-# 			df_list.append(pd.concat(pd.read_html(table.prettify())))
-# 			df = pd.concat(df_list)
-# 			df.to_csv(folder_path, table_name)
-# 			print('第%d表格下载完成' % (index+1))
-# 			time.sleep(1)  # 自定义延时
-# 	print('抓取完成')
-
-# except IOError:
-# 	print("error")

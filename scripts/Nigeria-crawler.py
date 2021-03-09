@@ -19,11 +19,9 @@ url = 'https://covid19.ncdc.gov.ng/'
 response = requests.get(url, headers={'Connection': 'close'})
 soup = BeautifulSoup(response.content, 'lxml')
 tables = soup.select('table')
-print(tables)
 
 
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-print(mkfile_time)
 
 folder_path = './data/Nigeria/'+ mkfile_time + '/'
 if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在

@@ -24,7 +24,6 @@ items = soup.find_all('img')
 
 
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-print(mkfile_time)
 
 folder_path = './data/Denmark/'+ mkfile_time + '/'
 if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在
@@ -46,7 +45,6 @@ try:
 				    file.write(html.content)
 				    file.flush()
 			    file.close()  # 关闭文件
-			    print('第%d张图片下载完成' % (index+1))
 			    time.sleep(1)  # 自定义延时
 
 

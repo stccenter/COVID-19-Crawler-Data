@@ -14,7 +14,7 @@ import os
 import time
 from datetime import datetime
 
-
+begin_time = datetime.now()
 
 url = 'http://mcp.gov.ba/publication/read/sluzbene-informacije-o-koronavirusu-covid-19'
 # strhtml = requests.get(url)
@@ -25,11 +25,8 @@ url = 'http://mcp.gov.ba/publication/read/sluzbene-informacije-o-koronavirusu-co
 response = requests.get(url, headers={'Connection': 'close'})
 soup = BeautifulSoup(response.content, 'lxml')
 items = soup.find_all('img')
-print (items)
-
 
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-print(mkfile_time)
 
 folder_path = './data/Bosnia&Herzegovina/'+ mkfile_time + '/'
 if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在
@@ -47,9 +44,6 @@ basewebsite = 'http://mcp.gov.ba'
 for image in items:
 		html = image.get('src')
 		htmlnew = urllib.parse.urljoin(basewebsite,html)
-   	 	#print(image.get('src'))
-		print(htmlnew)
-
 
 
 #try:
@@ -60,7 +54,6 @@ for index, item in enumerate(items):
 		html = item.get('src')
 		htmlnew = urllib.parse.urljoin(basewebsite,html)
 		html = requests.get(htmlnew)
-		print(htmlnew)
 		img_name = folder_path + str(index + 1) + '.png'
 		with open(img_name, 'wb') as file:  # 以byte形式将图片数据写入
 			file.write(html.content)
@@ -71,5 +64,4 @@ for index, item in enumerate(items):
 		 # 自定义延时
 print('抓取完成')
 
-#except IOError:
-#	print("error")
+print(datetime.now() - begin_time)

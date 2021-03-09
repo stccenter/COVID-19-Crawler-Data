@@ -12,7 +12,7 @@ from urllib import request
 from bs4 import BeautifulSoup
 import os
 from datetime import datetime
-
+begin_time = datetime.now()
 names = {
   "ភ្នំពេញ": "Phnom Penh",
   "ព្រះសីហនុ": "Sihanoukville",
@@ -63,19 +63,14 @@ if not os.path.exists(folder_path):
 file = open(folder_path+'table.csv', 'w', newline='', encoding='utf-8-sig')
 writer = csv.writer(file)
 
-for region in data:
-    print("Region in Cambodia: ", region["location"]["name_km"])
-#print("Data: ", [region["location"]["name_km"] for region in data])
 
 # Write each line to the CSV
 labels = ["Region", "LocalName", "TotalCases", "NewCases", "Recoveries", "NewRecoveries", "Deaths", "NewDeaths"]
 writer.writerow(labels)
 for region in data:
     local_name = region["location"]["name_km"]
-    #print(names[local_name]+", "+region["location"]["name_km"])
     row = [names[local_name], local_name, region["total_case"], region["new_case"], region["recovered_case"], region["new_recovered_case"], region["death_case"], region["new_death_case"]]
-    #print("finish: ", row)
     writer.writerow(row)
 
-
+print(datetime.now() - begin_time)
 

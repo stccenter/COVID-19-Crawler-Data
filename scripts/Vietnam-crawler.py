@@ -11,7 +11,7 @@ import os
 from datetime import datetime
 from bs4 import BeautifulSoup
 import json
-
+begin_time = datetime.now()
 url = "https://ncov.moh.gov.vn/"
 
 hc_key = {
@@ -105,3 +105,5 @@ for d in data:
 		continue
 	row = [hc_key[d["hc-key"]], d["value"], d["socakhoi"], d["socatuvong"]]
 	writer.writerow(row)
+
+print(datetime.now() - begin_time)

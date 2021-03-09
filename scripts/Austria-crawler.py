@@ -12,7 +12,7 @@ import os
 import time
 from datetime import datetime
 import pandas as pd 
-
+begin_time = datetime.now()
 url = 'https://www.sozialministerium.at/Informationen-zum-Coronavirus/Neuartiges-Coronavirus-(2019-nCov).html'
 
 
@@ -20,11 +20,8 @@ response = requests.get(url, headers={'Connection': 'close'})
 soup = BeautifulSoup(response.content, 'lxml')
 tables = soup.select('table')
 
-#print(tables)
-
 
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-print(mkfile_time)
 
 folder_path = './data/Austria/'+ mkfile_time + '/'
 if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在
@@ -54,5 +51,5 @@ try:
     print('抓取完成')
 except IOError:
  	print("error")
-print (df)
-#print(df.dtypes)
+
+print(datetime.now() - begin_time)

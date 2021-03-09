@@ -15,7 +15,7 @@ from datetime import datetime
 url = 'https://services3.arcgis.com/CoIPqtHxRZqBsYyb/arcgis/rest/services/FORM2_1/FeatureServer/0/query?where=1%3D1&returnGeometry=false&outFields=*&f=json'
 
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-print(mkfile_time)
+
 
 folder_path = './data/Libya/'+ mkfile_time + '/'
 if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在

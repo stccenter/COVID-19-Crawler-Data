@@ -10,7 +10,7 @@ import requests
 import json
 import os
 from datetime import datetime
-
+begin_time = datetime.now()
 
 
 url = "https://xx9p7hp1p7.execute-api.us-east-1.amazonaws.com/prod/PortalRegiaoSaude"
@@ -73,3 +73,4 @@ for d in data:
   writer.writerow(row)
 
 print("Brazil is done!")
+print(datetime.now() - begin_time)

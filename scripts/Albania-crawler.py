@@ -10,7 +10,7 @@ import requests
 import json
 import os
 from datetime import datetime
-
+begin_time = datetime.now()
 url = 'https://coronavirus.al/api/qarqet.php'
 
 # Get the data
@@ -30,3 +30,5 @@ writer.writerow(headers)
 for d in data:
   row = [d["qarku"], d["raste_gjithsej"], d["sheruar"], d["vdekur"], d["akt_pozitive"], d["terapi_int"], d["mjekim_spitalor"], d["izolim"], d["teste"]]
   writer.writerow(row)
+
+print(datetime.now() - begin_time)

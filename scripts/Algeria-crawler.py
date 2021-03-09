@@ -10,7 +10,7 @@ import csv
 import requests
 import os
 from datetime import datetime
-
+begin_time = datetime.now()
 url = "https://dz-covid19.com/ws/?EIO=3&transport=polling"
 sid = requests.get(url, headers={'Connection': 'close'}).text[12:32]
 
@@ -33,3 +33,4 @@ writer.writerow(headers)
 for d in data:
 	row = [d[h] for h in headers]
 	writer.writerow(row)
+print(datetime.now() - begin_time)
