@@ -27,7 +27,7 @@ southern = ["Bo", "Bonthe", "Moyamba", "Pujehun"]
 western = ["Western Rural", "Western Urban"]
 
 # Download the data
-req = requests.get(url).content.decode('utf-8')
+req = requests.get(url, headers={'Connection': 'close'}).content.decode('utf-8')
 
 # Create the dictrict csv
 file = open(folder_path+'districts.csv', 'w', newline='', encoding='utf-8-sig')
