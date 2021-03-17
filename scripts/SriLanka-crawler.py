@@ -5,6 +5,7 @@ import re
 from datetime import datetime as dt
 import datetime
 
+# List of districts
 districts = [
     'COLOMBO', 'GAMPAHA', 'PUTTALAM', 'KALUTARA', 'ANURADHAPURA', 'KANDY',
     'Kurunegala', 'JAFFNA', 'RATNAPURA', 'POLONNARUWA', 'KEGALLE',
