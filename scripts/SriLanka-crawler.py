@@ -5,7 +5,6 @@ import re
 from datetime import datetime as dt
 import datetime
 
-# List of districts
 districts = [
     'COLOMBO', 'GAMPAHA', 'PUTTALAM', 'KALUTARA', 'ANURADHAPURA', 'KANDY',
     'Kurunegala', 'JAFFNA', 'RATNAPURA', 'POLONNARUWA', 'KEGALLE',
@@ -44,8 +43,8 @@ try:
         match = re.search(pattern, letters + numbers)
         if match is not None:
             f.write(match.group(1) + ',' + match.group(2) + '\n')
-        temp_f.close()
-        f.close()
+    temp_f.close()
+    f.close()
 except:
     print('Cannot parse Sri Lanka data for ' + curr_date_str)
 
