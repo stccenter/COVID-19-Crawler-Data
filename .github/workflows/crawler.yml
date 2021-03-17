@@ -181,7 +181,7 @@ jobs:
       - name: Generate Nigeria data
         run: python scripts/Nigeria-crawler.py
         continue-on-error: true
-        
+
       #Country 33
       - name: Generate Norway data
         run: python scripts/Norway-crawler.py
@@ -251,10 +251,15 @@ jobs:
       - name: Generate Ukraine data
         run: python scripts/Ukraine-crawler.py
         continue-on-error: true
-        
+
       #Country 47
       - name: Generate Vietnam data
         run: python scripts/Vietnam-crawler.py
+        continue-on-error: true
+
+      #Country 48
+      - name: Generate Srilanka data
+        run: python scripts/SriLanka-crawler.py
         continue-on-error: true
 
       - name: Commit data files
