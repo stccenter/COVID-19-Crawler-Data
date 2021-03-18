@@ -5,17 +5,11 @@ from pathlib import Path
 import re
 from datetime import datetime as dt
 
-data_folder = './data/slovenia-data/'
-data_files = os.listdir(data_folder)
-
 mkfile_time = dt.strftime(dt.now(), '%Y%m%d%H%M')
 folder_path = './data/Slovenia/' + mkfile_time + '/'
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
-
-
 #first_date = datetime.date(2020, 7, 28)
-
 curr_date = datetime.date(2020, 10, 14)
 #last_date = datetime.date(2020, 10, 14)
 
