@@ -262,6 +262,16 @@ jobs:
         run: python scripts/SriLanka-crawler.py
         continue-on-error: true
 
+      #Country 49
+      - name: Generate Slovenia data
+        run: python scripts/Slovenia-crawler.py
+        continue-on-error: true
+
+      #Country 50
+      - name: Generate Turkey data
+        run: python scripts/Turkey-crawler.py
+        continue-on-error: true
+
       - name: Commit data files
         run: |
           git config --local user.email "action@github.com"
