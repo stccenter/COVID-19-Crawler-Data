@@ -15,11 +15,11 @@ districts = [
 ]
 ###
 
-today = datetime.date.today() - datetime.timedelta(days=2)
+today = datetime.date.today()
 curr_date_str = today.strftime('%Y-%m-%d')
 
-#mkfile_time = dt.strftime(dt.now(), '%Y%m%d%H%M')
-mkfile_time = today.strftime('%Y%m%d%H%M')
+mkfile_time = dt.strftime(dt.now(), '%Y%m%d%H%M')
+#mkfile_time = today.strftime('%Y%m%d%H%M')
 folder_path = './data/SriLanka/' + mkfile_time + '/'
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
