@@ -4,7 +4,7 @@ from pathlib import Path
 import re
 from datetime import datetime as dt
 import datetime
-####
+
 
 districts = [
     'COLOMBO', 'GAMPAHA', 'PUTTALAM', 'KALUTARA', 'ANURADHAPURA', 'KANDY',
