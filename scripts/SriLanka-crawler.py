@@ -14,7 +14,6 @@ districts = [
     'NUWARAELIYA', 'KILINOCHCHI', 'MANNAR', 'MULLATIVU', 'TH Jaffna'
 ]
 
-###
 
 today = datetime.date.today() - datetime.timedelta(days=1)
 curr_date_str = today.strftime('%Y-%m-%d')
