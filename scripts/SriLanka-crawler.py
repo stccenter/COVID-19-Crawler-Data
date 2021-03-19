@@ -17,7 +17,7 @@ districts = [
 
 today = datetime.date.today() - datetime.timedelta(days=1)
 curr_date_str = today.strftime('%Y-%m-%d')
-
+##
 #mkfile_time = dt.strftime(dt.now(), '%Y%m%d%H%M')
 mkfile_time = today.strftime('%Y%m%d%H%M')
 folder_path = './data/SriLanka/' + mkfile_time + '/'
