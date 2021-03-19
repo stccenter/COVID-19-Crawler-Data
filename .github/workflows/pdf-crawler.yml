@@ -1,10 +1,9 @@
-name: Dataset Update
-
+name: Pdf dataset update
 on:
   push:
     branches:
       - main
-  schedule:name: Dataset Update
+  schedule:name: Pdf dataset update
 
 on:
   push:
