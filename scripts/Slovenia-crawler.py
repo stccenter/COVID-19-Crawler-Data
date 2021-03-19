@@ -4,7 +4,6 @@ import tabula
 from pathlib import Path
 import re
 from datetime import datetime as dt
-#######
 mkfile_time = dt.strftime(dt.now(), '%Y%m%d%H%M')
 folder_path = './data/Slovenia/' + mkfile_time + '/'
 if not os.path.exists(folder_path):
