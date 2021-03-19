@@ -13,13 +13,17 @@ districts = [
     'NUWARAELIYA', 'KILINOCHCHI', 'MANNAR', 'MULLATIVU', 'TH Jaffna'
 ]
 
-mkfile_time = dt.strftime(dt.now(), '%Y%m%d%H%M')
+
+today = datetime.date.today() - datetime.timedelta(days=1)
+curr_date_str = today.strftime('%Y-%m-%d')
+
+#mkfile_time = dt.strftime(dt.now(), '%Y%m%d%H%M')
+mkfile_time = today.strftime('%Y%m%d%H%M')
 folder_path = './data/SriLanka/' + mkfile_time + '/'
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
 
-today = datetime.date.today()
-curr_date_str = today.strftime('%Y-%m-%d')
+
 file_name = curr_date_str + '_tmp'
 file_name1 = curr_date_str + '.csv'
 pdf_link = 'https://www.epid.gov.lk/web/images/pdf/corona_virus_report/sitrep-sl-en-' + today.strftime(
