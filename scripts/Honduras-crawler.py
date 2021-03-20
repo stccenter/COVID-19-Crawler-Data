@@ -12,7 +12,7 @@ from datetime import datetime
 import json
 
 
-url = 'https://covid19honduras.org/'
+#url = 'https://covid19honduras.org/'
 # Actually get the data from here:
 url = 'https://covid19honduras.org/dll/OMUERTOS_DEPTO.php'
 
@@ -22,7 +22,7 @@ data = json.loads(response.text)
 
 # Create the directory
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-folder_path = './data/Honduras/'+ mkfile_time + '/'
+folder_path = './data/Honduras/' + mkfile_time + '/'
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
 file = open(folder_path+'table.csv', 'w', newline='', encoding='utf-8-sig')
@@ -33,5 +33,5 @@ labels = ["Region", "Infections", "Recovered", "Deaths"]
 writer.writerow(labels)
 
 for d in data:
-	row = [d["name"], d["value"], d["recu"], d["muertos"]]
-	writer.writerow(row)
+    row = [d["name"], d["value"], d["recu"], d["muertos"]]
+    writer.writerow(row)
