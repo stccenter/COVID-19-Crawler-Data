@@ -13,15 +13,15 @@ import os
 from datetime import datetime
 
 names = {
-  "جبل لبنان": "Mount Lebanon",
-  "غير محدد": "Undefined",
-  "بيروت": "Beirut",
-  "الشمال": "North Lebanon",
-  "الجنوب": "South Lebanon",
-  "‫البقاع‬": "Beqaa",
-  "النبطية": "Nabatieh",
-  "بعلبك الهرمل": "Baalbek-Hermel",
-  "عكار": "Aakkar"
+    "جبل لبنان": "Mount Lebanon",
+    "غير محدد": "Undefined",
+    "بيروت": "Beirut",
+    "الشمال": "North Lebanon",
+    "الجنوب": "South Lebanon",
+    "‫البقاع‬": "Beqaa",
+    "النبطية": "Nabatieh",
+    "بعلبك الهرمل": "Baalbek-Hermel",
+    "عكار": "Aakkar"
 }
 
 url = 'https://corona.ministryinfo.gov.lb/'
@@ -30,6 +30,7 @@ url = 'https://corona.ministryinfo.gov.lb/'
 response = requests.get(url, headers={'Connection': 'close'})
 soup = BeautifulSoup(response.content, 'lxml')
 string = soup.find_all("script")[22].string
+
 
 # Pick out the case numbers
 array = string[string.index("[", 100):string.index("]", 100) + 1]
@@ -43,7 +44,7 @@ regions = [string[s[i]:e[i]] for i in range(9)]
 
 # Create and open the CSV
 mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
-folder_path = './data/Lebanon/'+ mkfile_time + '/'
+folder_path = './data/Lebanon/' + mkfile_time + '/'
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
 file = open(folder_path+'table.csv', 'w', newline='', encoding='utf-8-sig')
@@ -52,5 +53,5 @@ writer = csv.writer(file)
 labels = ["Region", "LocalName", "TotalCases"]
 writer.writerow(labels)
 for (r, d) in zip(regions, data):
-  row = [names[r], r, d]
-  writer.writerow(row)
+    row = [names[r], r, d]
+    writer.writerow(row)
