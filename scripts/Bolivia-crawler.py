@@ -23,6 +23,9 @@ mkfile_time = datetime.strftime(datetime.now(), '%Y%m%d%H%M')
 
 folder_path = './data/Bolivia/' + mkfile_time + '/'
 
+if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在
+    os.makedirs(folder_path)
+
 for index, item in enumerate(items):
     image = item.img['src']
     html = requests.get(image)
