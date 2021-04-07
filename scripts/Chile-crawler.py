@@ -36,6 +36,6 @@ try:
     #print(df)
     df = pd.concat(df)
     df.to_csv(folder_path+'table.csv', encoding='utf-8-sig')
-    print('抓取完成')
+    print('Crawler has been completed successfully!')
 except IOError:
  	print("error")
